@@ -1,0 +1,196 @@
+__LIB__
+
+// CIRCLE
+procedure drawCircle(pen: tip, c:color, size:int){
+    int angle = 0;
+    pen COLOR c;
+    pen ON ;
+    while (angle < 360){
+    pen size MOVE_ANGLE angle DEG ;
+    angle = angle + 5;
+    }
+}
+
+// SEMI CIRCLES CLOCKWISE
+
+
+//            *    *
+//        *            *
+//  ->  *                  *
+procedure drawHorizontalUpperSemiCircleClockwise(pen: tip, c:color, size:int){
+    int angle = 90;
+    pen COLOR c;
+    pen ON ;
+    while (angle > -90){
+    pen size MOVE_ANGLE angle DEG ;
+    angle = angle - 5;
+    }
+}
+
+//     *
+//        *      |
+//          *    V
+//          *
+//        *
+//     *
+procedure drawVerticalDownSemiCircleClockwise(pen: tip, c:color, size:int){
+    int angle = 360;
+    pen COLOR c;
+    pen ON ;
+    while (angle > 180){
+    pen size MOVE_ANGLE angle DEG ;
+    angle = angle - 5;
+    }
+}
+
+//   *               *  <-
+//      *         *
+//          *  *
+procedure drawHorizontalLowerSemiCircleClockwise(pen: tip, c:color, size:int){
+    int angle = 270;
+    pen COLOR c;
+    pen ON ;
+    while (angle > 90){
+    pen size MOVE_ANGLE angle DEG ;
+    angle = angle - 5;
+    }
+}
+
+//       *
+//    *       ▲
+//  *         |
+//  *
+//    *
+//       *
+procedure drawVerticalUpSemiCircleClockwise(pen: tip, c:color, size:int){
+    int angle = 180;
+    pen COLOR c;
+    pen ON ;
+    while (angle > 0){
+    pen size MOVE_ANGLE angle DEG ;
+    angle = angle - 5;
+    }
+}
+
+// SEMI CIRCLE COUNTER CLOCKWISE
+
+//  ->  *               *
+//         *         *
+//             *  *
+procedure drawSemiCircleDownCounterCW(pen: tip, c:color, size:int){
+    int angle = 270;
+    pen COLOR c;
+    pen ON ;
+    while (angle < 450){
+    pen size MOVE_ANGLE angle DEG ;
+    angle = angle + 5;
+    }
+}
+
+// QUARTER CIRCLES
+
+// CLOCKWISE
+
+//
+//              *  *    ->
+//           *
+//        *
+procedure drawUpperQuarterCircleUpClockwise(pen: tip, c:color, size:int){
+    int angle = 90;
+    pen COLOR c;
+    pen ON ;
+    while (angle > 0){
+    pen size MOVE_ANGLE angle DEG ;
+    angle = angle - 5;
+    }
+}
+
+//
+//     *
+//        *
+//            *  *   <-
+procedure drawLowerQuarterCircleUpClockwise(pen: tip, c:color, size:int){
+    int angle = 180;
+    pen COLOR c;
+    pen ON ;
+    while (angle > 90){
+    pen size MOVE_ANGLE angle DEG ;
+    angle = angle - 5;
+    }
+}
+
+//            *    |
+//            *    V
+//          *
+//      *
+procedure drawLowerQuarterCircleDownClockwise(pen: tip, c:color, size:int){
+    int angle = 270;
+    pen COLOR c;
+    pen ON ;
+    while (angle > 180){
+    pen size MOVE_ANGLE angle DEG ;
+    angle = angle - 5;
+    }
+}
+
+
+// COUNTER CLOCKWISE
+
+//            *
+//            *
+//          *
+//  -> *
+procedure drawLowerQuarterCircleUpCounterCW(pen: tip, c:color, size:int){
+    int angle = 0;
+    pen COLOR c;
+    pen ON ;
+    while (angle < 90){
+    pen size MOVE_ANGLE angle DEG ;
+    angle = angle + 5;
+    }
+}
+
+
+
+//     |
+//     V
+//     *
+//        *
+//            *  *
+procedure drawLowerQuarterCircleDownCounterCW(pen: tip, c:color, size:int){
+    int angle = 270;
+    pen COLOR c;
+    pen ON ;
+    while (angle < 360){
+    pen size MOVE_ANGLE angle DEG ;
+    angle = angle + 5;
+    }
+}
+
+
+//              *  *   <-
+//           *
+//        *
+procedure drawUpperQuarterCircleDownCounterCW(pen: tip, c:color, size:int){
+    int angle = 180;
+    pen COLOR c;
+    pen ON ;
+    while (angle < 270){
+    pen size MOVE_ANGLE angle DEG ;
+    angle = angle + 5;
+    }
+}
+
+
+//     *  *
+//            *
+//               *   <-
+procedure drawQuarterCircleUpCounterCW(pen: tip, c:color, size:int){
+    int angle = 90;
+    pen COLOR c;
+    pen ON ;
+    while (angle < 180){
+    pen size MOVE_ANGLE angle DEG ;
+    angle = angle + 5;
+    }
+}

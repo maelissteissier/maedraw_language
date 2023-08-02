@@ -1,0 +1,16 @@
+__MAIN__
+CANVAS 500,500;
+
+tip med_pen = pencil[blue, med, {0,0}];
+
+int i = 0;
+while i < 80 {
+    if (i % 2 == 0){
+        med_pen 1 MOVE_ANGLE 315 DEG;
+    } else {
+        med_pen OFF;
+        med_pen 20 MOVE_ANGLE 315 DEG;
+        med_pen ON;
+    }
+    i = i + 1;
+}

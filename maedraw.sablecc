@@ -1,0 +1,218 @@
+Package maedraw.syntax;
+
+Helpers
+    digit = ['0'..'9'];
+    non_zero_digit = ['1'..'9'];
+    sign = ['-' + '+'];
+    underscore = '_';
+    zero = '0';
+    letter = [['a'..'z']+['A'..'Z']];
+    eol = 13 | 10 | 13 10;
+    char = [32..126];
+    slash = '/';
+    line_comm = '/''/';
+    rc = 13; /* carriage return */
+    nl = 10; /* new line */
+    all = [0..0xffff];
+    not_star = [all - '*'];
+    not_nl = [all - nl];
+    not_newline = [not_nl - rc];
+
+
+Tokens
+
+    plus = '+';
+    minus = '-';
+    incr = '++';
+    decr = '--';
+    assign = '=';
+    sc = ';';
+    colon = ':';
+    eq = '=='; // equal
+    lt = '<';  // less than
+    gt = '>';  // greater than
+    neq = '!='; // not equal
+    not = '!';
+    l_par = '(';
+    r_par = ')';
+    l_brk = '[';
+    r_brk = ']';
+    l_acc = '{';
+    r_acc = '}';
+    dot = '.';
+    star = '*';
+    percent = '%';
+    slash = '/';
+    separate = ':';
+    comma = ',';
+
+// classic primitives
+    int = 'int';
+    bool = 'bool';
+    true = 'true';
+    false = 'false';
+
+// primitive actions
+    action_move_angle = 'MOVE_ANGLE';
+    action_move_pos = 'MOVE_POS';
+    action_on = 'ON';
+    action_off = 'OFF';
+    action_color = 'COLOR';
+
+// functions
+    function = 'function';
+    procedure = 'procedure';
+    return = 'return';
+
+// types
+    tip_type = 'tip';
+    color_type = 'color';
+    size_type = 'tip_size';
+    pos_type = 'pos';
+
+// Primitive tips
+    pencil_tip = 'pencil';
+
+// primitive sizes
+    small_size = 'small';
+    med_size = 'med';
+    large_size = 'large';
+
+// primitive colors
+    color_blue = 'blue';
+    color_yellow = 'yellow';
+    color_red = 'red';
+    color_white = 'white';
+    color_black = 'black';
+    color_rgb = 'rgb';
+
+// other reserved words
+    main_program = '__MAIN__';
+    lib_program = '__LIB__';
+    canvas = 'CANVAS';
+    if = 'if';
+    else = 'else';
+    while = 'while';
+    import = 'import';
+    degree = 'DEG';
+    integer = sign? non_zero_digit digit* | sign? zero ;
+    blank = (' ' | eol | 9)+;
+    comment = line_comm not_newline*;
+
+    ident = letter (letter | digit | underscore)*;
+    path = (letter | digit | slash | underscore | '.' )*;
+
+Ignored Tokens
+    blank, comment;
+
+Productions
+    program =
+        code;
+
+    code =
+        {main}libimport* main_program canvasdecl [fundecls]:fundecl* block |
+        {lib}libimport* lib_program [fundecls]:fundecl* lib_var_decl_instr*;
+
+    libimport =
+        import path sc;
+
+    canvasdecl =
+        canvas [width]:exp comma [height]:exp sc;
+
+
+    fundecl =
+        {function} function [name]:ident l_par params? r_par colon [return_type]:type l_acc block r_acc |
+        {procedure} procedure [name]:ident l_par params? r_par l_acc block r_acc;
+
+    params =
+        param [additional_params]:additional_param*;
+
+    additional_param =
+        comma param;
+
+    param =
+        [name]:ident colon type;
+
+    block = [instrs]:instr*;
+
+    lib_var_decl_instr =
+        type ident assign exp sc;
+
+    instr =
+        {decl} type ident assign exp sc |
+        {assign} ident assign exp sc |
+        {tip_move_angle} ident [num_move]:exp action_move_angle [angle]:exp degree sc|
+        {tip_move_pos} ident action_move_pos [pos]:exp sc|
+        {tip_off} ident action_off sc|
+        {tip_on} ident action_on sc|
+        {tip_color} ident action_color [color]:exp sc |
+        {if} if exp l_acc block r_acc else_instr? |
+        {while} while exp l_acc block r_acc |
+        {return} return exp? sc |
+        {call} ident l_par args? r_par sc ;
+
+    else_instr =
+        else l_acc block r_acc;
+
+    type =
+        {int} int |
+        {bool} bool |
+        {tip} tip_type |
+        {color} color_type |
+        {size} size_type |
+        {pos} pos_type ;
+
+    exp =
+        {eq} [left]:exp eq [right]:sum |
+        {lt} [left]:exp lt [right]:sum |
+        {gt} [left]:exp gt [right]:sum |
+        {simple} sum;
+
+    sum =
+        {add} [left]:sum plus [right]:mul |
+        {sub} [left]:sum minus [right]:mul |
+        {simple} mul;
+
+    mul =
+        {mod} [left]:mul percent [right]:neg |
+        {div} [left]:mul slash [right]:neg |
+        {star} [left]:mul star [right]:neg |
+        {simple} neg;
+
+    neg =
+        {not} not [exp]:neg |
+        {simple} term;
+
+    color =
+        {blue} color_blue |
+        {yellow} color_yellow |
+        {red} color_red |
+        {white} color_white |
+        {black} color_black |
+        {rgb} color_rgb l_brk [r]:exp [comma1]:comma [g]:exp [comma2]:comma [b]:exp r_brk ;
+
+    size =
+        {small} small_size |
+        {med} med_size |
+        {large} large_size;
+
+    term =
+        {number} integer |
+        {true} true |
+        {false} false |
+        {par} l_par exp r_par |
+        {call} ident l_par args? r_par |
+        {size} size |
+        {color} color |
+        {pos} l_acc [pos_x]:exp comma [pos_y]:exp r_acc |
+        {pencil} pencil_tip l_brk [color]:exp [comma1]:comma [size]:exp [comma2]:comma [pos]:exp r_brk |
+        {var} ident ;
+
+    args =
+        arg [additional_arg]:additional_arg*;
+
+    additional_arg =
+        comma arg;
+
+    arg =
+        exp;

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.example</groupId>
+    <artifactId>Drawing</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+    </properties>
+    <!--Dis a maven d'aller chercher les fichiers ressources
+    dans les sources et non dans le fichier 'ressources'-->
+    <build>
+        <resources>
+            <resource>
+                <directory>src/main/java</directory>
+                <!--Dis a maven de ne charger que les fichiers .dat comme ressources
+                (sinon il prendrait toutes les sources comme ressources dans le jar
+                ce qui ne fait pas de sens)-->
+                <includes>
+                    <include>**/*.dat</include>
+                </includes>
+            </resource>
+        </resources>
+    </build>
+
+</project>

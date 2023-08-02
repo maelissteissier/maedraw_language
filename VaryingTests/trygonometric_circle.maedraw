@@ -1,0 +1,115 @@
+import VaryingTests/libraries/lib_color_palette;
+import VaryingTests/libraries/lib_shapes;
+
+__MAIN__
+CANVAS 1000, 1000;
+
+tip med_pen = pencil[DODGER_BLUE, med, {700,500}];
+
+
+
+
+tip small_pen = pencil[SPRING_GREEN, small, {500,500}];
+small_pen 300 MOVE_ANGLE 0 DEG;
+
+small_pen OFF;
+small_pen MOVE_POS {500,500};
+
+small_pen ON;
+small_pen 300 MOVE_ANGLE 30 DEG;
+
+small_pen OFF;
+small_pen MOVE_POS {500,500};
+
+small_pen ON;
+small_pen 300 MOVE_ANGLE 45 DEG;
+
+
+small_pen OFF;
+small_pen MOVE_POS {500,500};
+
+small_pen ON;
+small_pen 300 MOVE_ANGLE 60 DEG;
+
+small_pen OFF;
+small_pen MOVE_POS {500,500};
+
+small_pen COLOR ORANGE;
+
+small_pen ON;
+small_pen 300 MOVE_ANGLE 90 DEG;
+
+small_pen OFF;
+small_pen MOVE_POS {500,500};
+
+small_pen ON;
+small_pen 300 MOVE_ANGLE 120 DEG;
+
+small_pen OFF;
+small_pen MOVE_POS {500,500};
+
+small_pen ON;
+small_pen 300 MOVE_ANGLE 135 DEG;
+
+small_pen OFF;
+small_pen MOVE_POS {500,500};
+
+small_pen ON;
+small_pen 300 MOVE_ANGLE 150 DEG;
+
+small_pen OFF;
+small_pen MOVE_POS {500,500};
+
+small_pen COLOR DEEP_PINK;
+
+small_pen ON;
+small_pen 300 MOVE_ANGLE 180 DEG;
+
+small_pen OFF;
+small_pen MOVE_POS {500,500};
+
+small_pen ON;
+small_pen 300 MOVE_ANGLE 210 DEG;
+
+small_pen OFF;
+small_pen MOVE_POS {500,500};
+
+small_pen ON;
+small_pen 300 MOVE_ANGLE 225 DEG;
+
+small_pen OFF;
+small_pen MOVE_POS {500,500};
+
+small_pen ON;
+small_pen 300 MOVE_ANGLE 240 DEG;
+
+small_pen OFF;
+small_pen MOVE_POS {500,500};
+
+small_pen COLOR DODGER_BLUE;
+
+small_pen ON;
+small_pen 300 MOVE_ANGLE 270 DEG;
+
+small_pen OFF;
+small_pen MOVE_POS {500,500};
+
+small_pen ON;
+small_pen 300 MOVE_ANGLE 300 DEG;
+
+small_pen OFF;
+small_pen MOVE_POS {500,500};
+
+small_pen ON;
+small_pen 300 MOVE_ANGLE 315 DEG;
+
+small_pen OFF;
+small_pen MOVE_POS {500,500};
+
+small_pen ON;
+small_pen 300 MOVE_ANGLE 330 DEG;
+
+small_pen OFF;
+small_pen MOVE_POS {522,500};
+drawHorizontalLowerSemiCircleClockwise(small_pen, GREY, 2);
+drawHorizontalUpperSemiCircleClockwise(small_pen, GREY, 2);

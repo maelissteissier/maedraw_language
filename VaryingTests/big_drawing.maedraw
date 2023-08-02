@@ -1,0 +1,261 @@
+import VaryingTests/libraries/lib_color_palette;
+import VaryingTests/libraries/lib_shapes;
+
+__MAIN__
+CANVAS 1000,1000;
+procedure drawWaves(pen:tip, c:color){
+    int i = 0;
+    while (i < 8){
+        drawHorizontalUpperSemiCircleClockwise(pen, c, 3);
+        drawSemiCircleDownCounterCW(pen, c, 3);
+        i = i + 1;
+    }
+}
+
+procedure drawSea(med_pen:tip){
+    color waterColor = DARK_TURQUOISE;
+    int wavePos = 0;
+    int waveNb = 0;
+
+    while waveNb < 5 {
+        med_pen OFF;
+        med_pen MOVE_POS {0,(700 + wavePos)};
+        drawWaves(med_pen, waterColor);
+        wavePos = wavePos + 10;
+        waterColor = waterColor - 1;
+        waveNb = waveNb + 1;
+    }
+}
+
+procedure drawTree(med_pen: tip){
+    med_pen OFF;
+    med_pen MOVE_POS {693,550};
+
+    // TRUNC
+    drawQuarterCircleUpCounterCW(med_pen, SADDLE_BROWN, 20);
+
+    med_pen OFF;
+    med_pen MOVE_POS {700,550};
+
+    // TRUNC
+    drawQuarterCircleUpCounterCW(med_pen, SIENNA, 20);
+
+    med_pen OFF;
+    med_pen MOVE_POS {707,550};
+
+    // TRUNC
+    drawQuarterCircleUpCounterCW(med_pen, MAROON, 20);
+
+    // LEAF1
+    drawUpperQuarterCircleUpClockwise(med_pen, DARK_GREEN, 6);
+
+    med_pen OFF;
+    med_pen MOVE_POS {481,311};
+    // LEAF2
+    drawUpperQuarterCircleDownCounterCW(med_pen, DARK_GREEN, 6);
+
+
+    med_pen OFF;
+    med_pen MOVE_POS {481,311};
+    // LEAF3
+    drawLowerQuarterCircleUpClockwise(med_pen, DARK_GREEN, 6);
+
+
+    med_pen OFF;
+    med_pen MOVE_POS {481,311};
+    // LEAF4
+    drawUpperQuarterCircleUpClockwise(med_pen, SEA_GREEN, 9);
+
+    med_pen OFF;
+    med_pen MOVE_POS {481,311};
+    // LEAF5
+    drawUpperQuarterCircleDownCounterCW(med_pen, SEA_GREEN, 8);
+
+    med_pen OFF;
+    med_pen MOVE_POS {481,311};
+    // LEAF6
+    drawLowerQuarterCircleUpClockwise(med_pen, SEA_GREEN, 8);
+
+
+    med_pen OFF;
+    med_pen MOVE_POS {481,311};
+    // LEAF 7
+    drawUpperQuarterCircleUpClockwise(med_pen, GREEN, 12);
+
+    med_pen OFF;
+    med_pen MOVE_POS {481,311};
+    // LEAF 8
+    drawUpperQuarterCircleDownCounterCW(med_pen, GREEN, 12);
+
+    med_pen OFF;
+    med_pen MOVE_POS {481,311};
+    // LEAF 9
+    drawLowerQuarterCircleUpClockwise(med_pen, GREEN, 12);
+
+}
+
+procedure drawIsland(large_pen: tip){
+    large_pen OFF;
+    large_pen MOVE_POS {500,700};
+    drawHorizontalUpperSemiCircleClockwise(large_pen, GOLD, 15);
+
+    large_pen OFF;
+    large_pen MOVE_POS {530,700};
+    drawHorizontalUpperSemiCircleClockwise(large_pen, GOLDEN_ROD, 12);
+
+    large_pen OFF;
+    large_pen MOVE_POS {560,700};
+    drawHorizontalUpperSemiCircleClockwise(large_pen, PALE_GOLDEN_ROD, 9);
+}
+
+procedure drawSun(med_pen:tip){
+    med_pen OFF;
+    med_pen MOVE_POS {100, 200};
+    med_pen 10 MOVE_ANGLE -90 DEG;
+
+    drawCircle(med_pen, GOLD, 5);
+
+    med_pen OFF;
+    med_pen 10 MOVE_ANGLE -90 DEG;
+
+    drawCircle(med_pen, ORANGE_RED, 6);
+
+    med_pen OFF;
+    med_pen 10 MOVE_ANGLE -90 DEG;
+
+    drawCircle(med_pen, CRIMSON, 7);
+}
+
+procedure drawFishes(med_pen: tip){
+
+    // FISH 1
+    med_pen OFF;
+    med_pen MOVE_POS {300,800};
+
+    drawUpperQuarterCircleDownCounterCW(med_pen, MEDIUM_SLATE_BLUE, 5);
+    drawLowerQuarterCircleUpCounterCW(med_pen, MEDIUM_SLATE_BLUE, 5);
+
+    med_pen 30 MOVE_ANGLE 100 DEG;
+    med_pen 40 MOVE_ANGLE 330 DEG;
+    med_pen 30 MOVE_ANGLE 190 DEG;
+
+    med_pen OFF;
+    med_pen MOVE_POS {295,805};
+
+    drawUpperQuarterCircleDownCounterCW(med_pen, CORN_FLOWER_BLUE, 4);
+    drawLowerQuarterCircleUpCounterCW(med_pen, CORN_FLOWER_BLUE, 4);
+
+
+    med_pen OFF;
+    med_pen MOVE_POS {290,810};
+
+    drawUpperQuarterCircleDownCounterCW(med_pen, ROYAL_BLUE, 3);
+    drawLowerQuarterCircleUpCounterCW(med_pen, ROYAL_BLUE, 3);
+    drawUpperQuarterCircleDownCounterCW(med_pen, MEDIUM_PURPLE, 2);
+    drawLowerQuarterCircleUpCounterCW(med_pen, MEDIUM_PURPLE, 2);
+
+
+    // FISH 2
+    med_pen OFF;
+    med_pen MOVE_POS {600,900};
+
+    drawLowerQuarterCircleUpCounterCW(med_pen, DARK_MAGENTA, 5);
+    drawUpperQuarterCircleDownCounterCW(med_pen, DARK_MAGENTA, 5);
+
+    med_pen 30 MOVE_ANGLE 190 DEG;
+    med_pen 40 MOVE_ANGLE 330 DEG;
+    med_pen 30 MOVE_ANGLE 100 DEG;
+
+    med_pen OFF;
+    med_pen MOVE_POS {605,895};
+
+    drawLowerQuarterCircleUpCounterCW(med_pen, MEDIUM_VIOLET_RED, 4);
+    drawUpperQuarterCircleDownCounterCW(med_pen, MEDIUM_VIOLET_RED, 4);
+
+    drawLowerQuarterCircleUpCounterCW(med_pen, HOT_PINK, 3);
+    drawUpperQuarterCircleDownCounterCW(med_pen, HOT_PINK, 3);
+
+    drawLowerQuarterCircleUpCounterCW(med_pen, DEEP_PINK, 2);
+    drawUpperQuarterCircleDownCounterCW(med_pen, DEEP_PINK, 2);
+}
+
+procedure drawClouds(large_pen: tip){
+    large_pen OFF;
+    large_pen MOVE_POS {600, 60};
+
+    drawHorizontalUpperSemiCircleClockwise(large_pen, PINK, 4);
+    drawHorizontalUpperSemiCircleClockwise(large_pen, PINK, 4);
+    drawHorizontalUpperSemiCircleClockwise(large_pen, PINK, 3);
+    drawVerticalDownSemiCircleClockwise(large_pen, PINK, 3);
+    drawLowerQuarterCircleDownClockwise(large_pen, PINK, 5);
+    drawHorizontalLowerSemiCircleClockwise(large_pen, PINK, 7);
+    drawHorizontalLowerSemiCircleClockwise(large_pen, PINK, 4);
+    drawVerticalUpSemiCircleClockwise(large_pen, PINK, 3);
+    drawUpperQuarterCircleUpClockwise(large_pen, PINK, 5);
+
+    large_pen OFF;
+    large_pen MOVE_POS {610, 90};
+    drawHorizontalUpperSemiCircleClockwise(large_pen, LIGHT_STEEL_BLUE, 3);
+    drawHorizontalUpperSemiCircleClockwise(large_pen, LIGHT_STEEL_BLUE, 4);
+    drawHorizontalUpperSemiCircleClockwise(large_pen, LIGHT_STEEL_BLUE, 2);
+    drawVerticalDownSemiCircleClockwise(large_pen, LIGHT_STEEL_BLUE, 2);
+    drawLowerQuarterCircleDownClockwise(large_pen, LIGHT_STEEL_BLUE, 4);
+    drawHorizontalLowerSemiCircleClockwise(large_pen, LIGHT_STEEL_BLUE, 5);
+    drawHorizontalLowerSemiCircleClockwise(large_pen, LIGHT_STEEL_BLUE, 3);
+    drawVerticalUpSemiCircleClockwise(large_pen, LIGHT_STEEL_BLUE, 3);
+    drawUpperQuarterCircleUpClockwise(large_pen, LIGHT_STEEL_BLUE, 5);
+
+    large_pen OFF;
+    large_pen MOVE_POS {640, 100};
+    drawHorizontalUpperSemiCircleClockwise(large_pen, LAVENDER_BLUSH, 2);
+    drawHorizontalUpperSemiCircleClockwise(large_pen, LAVENDER_BLUSH, 2);
+    drawHorizontalUpperSemiCircleClockwise(large_pen, LAVENDER_BLUSH, 1);
+    drawVerticalDownSemiCircleClockwise(large_pen, LAVENDER_BLUSH, 1);
+    drawLowerQuarterCircleDownClockwise(large_pen, LAVENDER_BLUSH, 2);
+    drawHorizontalLowerSemiCircleClockwise(large_pen, LAVENDER_BLUSH, 3);
+    drawHorizontalLowerSemiCircleClockwise(large_pen, LAVENDER_BLUSH, 2);
+    drawVerticalUpSemiCircleClockwise(large_pen, LAVENDER_BLUSH, 2);
+    drawUpperQuarterCircleUpClockwise(large_pen, LAVENDER_BLUSH, 2);
+}
+
+procedure drawBirds(small_pen: tip){
+    small_pen OFF;
+    small_pen MOVE_POS {200,200};
+    drawHorizontalUpperSemiCircleClockwise(small_pen, black, 1);
+    drawHorizontalUpperSemiCircleClockwise(small_pen, black, 1);
+
+    small_pen OFF;
+    small_pen MOVE_POS {230,300};
+    drawUpperQuarterCircleUpClockwise(small_pen, black, 1);
+    drawUpperQuarterCircleUpClockwise(small_pen, black, 1);
+
+    small_pen OFF;
+    small_pen MOVE_POS {400,80};
+    drawUpperQuarterCircleUpClockwise(small_pen, black, 2);
+    drawUpperQuarterCircleUpClockwise(small_pen, black, 2);
+
+    small_pen OFF;
+    small_pen MOVE_POS {80,400};
+    drawQuarterCircleUpCounterCW(small_pen, black, 2);
+    drawQuarterCircleUpCounterCW(small_pen, black, 2);
+
+
+    small_pen OFF;
+    small_pen MOVE_POS {160,350};
+    drawQuarterCircleUpCounterCW(small_pen, black, 4);
+    drawQuarterCircleUpCounterCW(small_pen, black, 4);
+}
+
+tip med_pen = pencil[white, med, {0,0}];
+tip large_pen = pencil[white, large, {0,0}];
+tip small_pen = pencil[white, small, {0,0}];
+
+
+drawSun(med_pen);
+drawClouds(large_pen);
+drawBirds(small_pen);
+drawIsland(large_pen);
+drawTree(med_pen);
+drawSea(med_pen);
+drawFishes(med_pen);
+

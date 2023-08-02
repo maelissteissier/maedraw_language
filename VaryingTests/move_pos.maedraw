@@ -1,0 +1,59 @@
+import VaryingTests/libraries/lib_color_palette;
+
+__MAIN__
+CANVAS 1000, 1000;
+
+color my_purple = MEDIUM_VIOLET_RED;
+tip pen = pencil[my_purple, med, {500,200}];
+
+pen MOVE_POS {500, 500};
+my_purple = my_purple + 1;
+pen COLOR my_purple;
+
+pen MOVE_POS {800, 500};
+my_purple = my_purple + 1;
+pen COLOR my_purple;
+
+pen MOVE_POS {800, 200};
+my_purple = my_purple + 1;
+pen COLOR my_purple;
+
+pen MOVE_POS {550, 200};
+my_purple = my_purple + 1;
+pen COLOR my_purple;
+
+pen MOVE_POS {550, 450};
+my_purple = my_purple + 1;
+pen COLOR my_purple;
+
+pen MOVE_POS {750, 450};
+my_purple = my_purple - 1;
+pen COLOR my_purple;
+
+pen MOVE_POS {750, 250};
+my_purple = my_purple - 1;
+pen COLOR my_purple;
+
+pen MOVE_POS {600, 250};
+my_purple = my_purple - 1;
+pen COLOR my_purple;
+
+pen MOVE_POS {600, 400};
+my_purple = my_purple - 1;
+pen COLOR my_purple;
+
+pen MOVE_POS {700, 400};
+my_purple = my_purple - 1;
+pen COLOR my_purple;
+
+pen MOVE_POS {700, 300};
+my_purple = my_purple - 1;
+pen COLOR my_purple;
+
+pen MOVE_POS {650, 300};
+my_purple = my_purple - 1;
+pen COLOR my_purple;
+
+pen MOVE_POS {650, 350};
+my_purple = my_purple - 1;
+pen COLOR my_purple;

@@ -1,0 +1,59 @@
+import VaryingTests/libraries/lib_color_palette;
+
+__MAIN__
+CANVAS 1000, 1000;
+
+color dodger_blue = DODGER_BLUE;
+tip large_pen = pencil[dodger_blue, large, {0,500}];
+
+int i = 0;
+while (i < 7){
+ large_pen 100 MOVE_ANGLE 0 DEG;
+ dodger_blue = dodger_blue + 1;
+ large_pen COLOR dodger_blue;
+ i = i + 1;
+}
+
+color aqua_marine = AQUA_MARINE;
+tip large_pen2 = pencil[aqua_marine, large, {0,600}];
+
+i = 0;
+while (i < 7){
+ large_pen2 100 MOVE_ANGLE 0 DEG;
+ aqua_marine = aqua_marine - 1;
+ large_pen2 COLOR aqua_marine;
+ i = i + 1;
+}
+
+color sea_green = rgb[46,139,87];
+color cyan = rgb[0,255,255];
+
+tip large_pen3 = pencil[sea_green, large, {0,700}];
+
+large_pen3 100 MOVE_ANGLE 0 DEG;
+
+large_pen3 COLOR cyan;
+large_pen3 100 MOVE_ANGLE 0 DEG;
+
+large_pen3 COLOR cyan + sea_green;
+
+large_pen3 100 MOVE_ANGLE 0 DEG;
+
+
+tip large_pen4 = pencil[red, large, {0,800}];
+large_pen4 100 MOVE_ANGLE 0 DEG;
+
+large_pen4 COLOR yellow;
+large_pen4 100 MOVE_ANGLE 0 DEG;
+
+large_pen4 COLOR yellow + red;
+large_pen4 100 MOVE_ANGLE 0 DEG;
+
+// on declare une tip bleu
+tip large_pen5 = pencil[blue, large, {0,850}];
+// le trait tracé sera bleu
+large_pen5 100 MOVE_ANGLE 0 DEG;
+// on change la couleur de la même tip à rouge
+large_pen5 COLOR red;
+// le trait tracé sera maintenant rouge
+large_pen5 100 MOVE_ANGLE 0 DEG;
