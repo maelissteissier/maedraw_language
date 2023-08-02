@@ -1,14 +1,17 @@
-# INF600E - Travail de session
+# MAEDRAW Language
+
+![maedraw example](maedraw_example.gif)
 
 ## Auteur
 
-Maëliss Teissier (TEIM01568708)
+[Maëliss Teissier](https://github.com/maelissteissier)
 
 ## Description
 
 Le langage maedraw est un langage déclaratif de dessin, typé statiquement et interprété, permettant de déclarer et déplacer des 
 mines de crayons sur un canevas (une matrice de pixels). Le langage permet de changer leur couleur et leur taille de trait.
 
+> Travail de session réalisé dans le cadre du cours INF600E - "Création de langages informatiques"
 
 
 ## Dépendances:
@@ -17,9 +20,9 @@ mines de crayons sur un canevas (une matrice de pixels). Le langage permet de ch
 
 ## Spécifications du language
 
-Toute la spécification du language est détaillée dans le fichier PDF : `Rapport_travail_session_TEIM01568708.pdf`
+Toute la spécification du language est détaillée dans le fichier PDF : [Rapport_et_specification.pdf](Rapport_et_specification.pdf)
 
-La description formelle de la grammaire se trouve dans le fichier `maedraw.sablecc`
+La description formelle de la grammaire se trouve dans le fichier [maedraw.sablecc](maedraw.sablecc)
 
 ## Compiler l'interpréteur :
 - Se rendre à la racine du projet
